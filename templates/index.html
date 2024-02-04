@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Pharmany</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/PHARMANY.png') }}" alt="Pharmany logo">
+                    <h2>Phar<span class="danger">Many</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-round">
+                        close
+                        </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-round">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+
+                <a href="#">
+                    <span class="material-icons-round">
+                        groups
+                    </span>
+                    <h3>Patients</h3>
+                </a>
+
+                <a href="#">
+                    <span class="material-icons-round">
+                        person
+                    </span>
+                    <h3>Patient Portfolio</h3>
+                </a>
+
+                <a href="#">
+                    <span class="material-icons-round">
+                        vaccines
+                    </span>
+                    <h3>Drug Query</h3>
+                </a>
+
+                <a href="#">
+                    <span class="material-icons-round">
+                        summarize
+                    </span>
+                    <h3>Drug Report</h3>
+                </a>
+
+                
+
+                <a href="#">
+                    <span class="material-icons-round">
+                        settings
+                    </span>
+                    <h3>Settings</h3>
+                </a>
+
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Dashboard -->
+            
+            <div class="dashboard">
+                <h1>Dashboard</h1>
+            </div>
+            
+            <!-- Patients-->
+            <div class="patients">
+                <h2>Patients</h2>
+                <div class="patient-list">
+                    <div class="patient">
+                        <img src="{{ url_for('static', filename='images/patient-profile-1.png') }}">
+                        <h2>Audrey</h2>
+                        <p>Female</p>
+                    </div>
+                    <div class="patient">
+                        <img src="{{ url_for('static', filename='images/patient-profile-2.png') }}">
+                        <h2>Emma</h2>
+                        <p>Female</p>
+                    </div>
+                    <div class="patient">
+                        <img src="{{ url_for('static', filename='images/patient-profile-2.png') }}">
+                        <h2>Kevin</h2>
+                        <p>Male</p>
+                    </div>
+                    <div class="patient">
+                        <img src="{{ url_for('static', filename='images/patient-profile-2.png') }}">
+                        <h2>Yvonne</h2>
+                        <p>Female</p>
+                    </div>
+                    <div class="patient">
+                        <img src="{{ url_for('static', filename='images/plus.png') }}">
+                        <h2>More</h2>
+                        <p>New User</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Patients Ends here -->
+
+            <!-- Patient Portfolio-->
+            
+            <!-- Patient Portfoliio Ends Here-->
+
+            <!-- Drug Query -->
+            <!--div class=earch, i bx bx-search and input type-->
+                    
+            <div class="drug-query">
+                <h2>Drug Query</h2>
+                <i class ='drug-search'>
+                    <span class="material-icons-round">
+                        search
+                    </span> 
+                    <input type="text"id="new_input" placeholder = "Query A Drug...">
+                    <button onclick="add_drug('new')">Add</button>
+                </i>
+                
+                
+            </div>
+            <!-- Drug query Ends here -->
+
+            <!-- Drug Report -->
+            <h2>Drug Report</h2>      
+        
+            <div class="drug-report">
+                <ul>
+                <div id="existing_drugs_container">
+                {% for i in range(existing|length) %}
+                    <li>
+                    <button onclick="delete_drug('existing', '{{ i }}')" class="queried-drug-info">
+                        <!--Parse from the Drug query section (js)-->
+                        <h3 class="drug-name" style="background-color: var({{ colors[i] }})">{{ existing[i] }}</h3>
+                    </button>
+                    </li>
+                {% endfor %}
+                </div>
+                <li>
+                <div class="query-existing-drug">
+                    <!--Parse from the Drug query section (js)-->
+                    <input type="text" id="existing_input" placeholder = "Add an existing drug...">
+                    <button onclick="add_drug('existing')">Add</button>
+                </div>
+                </li>
+                </ul>
+
+                <div class="interactions">
+                    {% for i in interactions_list %}
+                        <a href="{{ i[2] }}">{{ i[1] }}</a>
+                    {% endfor %}
+                    {% if safe %}
+                        <img src="{{ url_for('static', filename='images/safe.png') }}" alt="Safe!" style="object-fit:scale-down; width:100px">
+                    {% endif %}
+                </div>
+                <div class="new_drug_container">
+                    <ul>
+                    {% for i in range(new|length) %}
+                    <li>
+                        <button onclick="delete_drug('new', '{{ i }}')" class="queried-drug-info">
+                            <!--Parse from the Drug query section (js)-->
+                            <h3 class="drug-name">{{ new[i] }}</h3>
+                        </button>
+                    </li>
+                    {% endfor %}
+                </ul>
+                </div>
+            </div>  
+            </div>
+
+            {% if error_msg %}
+                {{ error_msg }}
+            {% endif %}
+
+            </div>
+            <!-- Drug report ends here -->
+        </main>
+
+    </div>
+
+    
+    <script>
+        function add_drug(listType) {
+            var drugName;
+            if (listType === 'existing') {
+                drugName = $('#existing_input').val();
+            } else if (listType === 'new') {
+                drugName = $('#new_input').val();
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/add_drug',
+                data: { drug_name: drugName, list_type: listType },
+                success: function(response) {
+                    if (response.status === 'success') {
+                        location.reload();
+                    }
+                }
+            });
+        }
+
+        function delete_drug(listType, drugName) {
+            $.ajax({
+                type: 'POST',
+                url: '/delete_drug',
+                data: { drug_name: drugName, list_type: listType },
+                success: function(response) {
+                    if (response.status === 'success') {
+                        location.reload();
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <div>
+        <label for="left_todo_input">Add existing drug:</label>
+        <input type="text" id="left_todo_input">
+        <button onclick="add_drug('existing')">Add</button>
+    </div>
+
+    <div id="left_todos_container">
+        {% for drug in existing_drug %}
+            <div class="todo-item">{{ drug }}</div>
+        {% endfor %}
+    </div>
+
+    <div>
+        <label for="right_todo_input">Search new drug:</label>
+        <input type="text" id="right_todo_input">
+        <button onclick="add_drug('new')">Add</button>
+    </div>
+
+    <div id="right_todos_container">
+        {% for drug in new %}
+            <div class="todo-item">{{ drug }}</div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function add_drug(listType) {
+            var drugName;
+            if (listType === 'existing') {
+                drugName = $('#left_todo_input').val();
+            } else if (listType === 'new') {
+                drugName = $('#right_todo_input').val();
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/add_drug',
+                data: { drug_name: drugName, list_type: listType },
+                success: function(response) {
+                    if (response.status === 'success') {
+                        var containerId = listType === 'existing' ? 'left_todos_container' : 'right_todos_container';
+                        $('#' + containerId).append('<div class="todo-item">' + drugName + '</div>');
+                        $('#' + listType + '_todo_input').val('');
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
