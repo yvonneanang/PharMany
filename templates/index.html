@@ -100,12 +100,12 @@
                         <p>Female</p>
                     </div>
                     <div class="patient">
-                        <img src="{{ url_for('static', filename='images/patient-profile-2.png') }}">
+                        <img src="{{ url_for('static', filename='images/patient-profile-3.png') }}">
                         <h2>Kevin</h2>
                         <p>Male</p>
                     </div>
                     <div class="patient">
-                        <img src="{{ url_for('static', filename='images/patient-profile-2.png') }}">
+                        <img src="{{ url_for('static', filename='images/patient-profile-4.png') }}">
                         <h2>Yvonne</h2>
                         <p>Female</p>
                     </div>
@@ -165,7 +165,7 @@
 
                 <div class="interactions">
                     {% for i in interactions_list %}
-                        <a href="{{ i[2] }}">{{ i[1] }}</a>
+                        <a href="{{ i[2] }}" target="_blank" rel="noopener noreferrer">{{ i[1] }}</a>
                     {% endfor %}
                     {% if safe %}
                         <img src="{{ url_for('static', filename='images/safe.png') }}" alt="Safe!" style="object-fit:scale-down; width:100px">

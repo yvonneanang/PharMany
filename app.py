@@ -6,6 +6,8 @@ import json
 app = Flask(__name__)
 
 # Setting up api_key and api_url
+api_key = 'z91dwvBJsnOCwOimqWgagaZqGBC53M69pOKoMNPT'
+api_url = 'https://api.fda.gov/drug/label.json'
 
 existing = []
 colors = []
@@ -163,7 +165,7 @@ def find_interactions(newdruginfo, druglist):
 
 @app.route('/add_drug', methods=['POST'])
 def add_drug():
-    global safe, interactions_list, new
+    global safe, interactions_list, new, colors
     drug_name = request.form.get('drug_name')
     list_type = request.form.get('list_type')
 
@@ -171,10 +173,19 @@ def add_drug():
         existing.append(drug_name)
         colors.append("--color-primary")
     elif list_type == 'new':
+        colors.append("--color-primary")
         newdruginfo = parse_new_drug(drug_name)
         druglist = parse_existing(existing)
         safe, interactions_list = find_interactions(newdruginfo, druglist)
+        for i in range(len(colors)):
+            print("here!")
+            colors[i] = "--color-primary"
+        print(colors)
+        for interaction in interactions_list:
+            print(interaction)
+            colors[interaction[0]] = "--color-dark"
         new = [drug_name]
+        print(colors)
 
     return jsonify({'status': 'success', 'message': 'Added successfully'})
 
