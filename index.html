@@ -118,12 +118,12 @@
 
             <!-- Patient Portfolio-->
             
-            <div class="patient-portfolio">
+            <!--<div class="patient-portfolio">
                 <h2>Patient Portfolio</h2>
                 <div class="patient-personal-data">
 
                 </div>
-            </div>
+            </div>-->
             <!-- Patient Portfoliio Ends Here-->
 
             <!-- Drug Query -->
@@ -148,6 +148,7 @@
                 <div class="queried-drug-info">
                     <!--Parse from the Drug query section (js)-->
                     <h3 class="drug-name">Drug Name</h3>
+                    <div class="short-border"></div>
                     <div class="mechanism-action">
                         <h3>Mechanism of Action</h3><br/>
                         <!--Include output of mechanism of action from a file-->
@@ -159,31 +160,36 @@
                 </div>
 
                 <div class="queried-drug-active-ingredients">
-                    <h3>Queried drug active ingredients</h3></br>
-
-                    <p class="q-drug-ingredient-list">Output from file goes here - <br>
-                        can make a for loop for each ingredient
-                        <div class="qdi">Active Ingredient 1</div>
-                        <div class="qdi">Active Ingredient 2</div>
-                        <div class="qdi">Active Ingredient 3</div>
+                    <h3>Queried Drug Active Ingredients</h3>
+                    <div class="short-border"></div>
+                    <p class="qdi-list">Active ingredients in queried drug
+                        <div class="not-detected">Active Ingredient 1</div>
+                        <div class="not-detected">Active Ingredient 2</div>
+                        <div class="detected">Active Ingredient 3</div>
                     </p>
                     
                 </div>
 
                 <div class="patient-drug-active-ingredients">
                     <h3>Patient Drug Active Ingredients</h3>
-                    <p class="patient-drug-ingredient-list">Output from file goes here - <br>
-                        can make a for loop for each ingredient
-                        <li class="patient-drug-ingredient">Active Ingredient 1</li>
-                        <li class="patient-drug-ingredient">Active Ingredient 2</li>
-                        <li class="patient-drug-ingredient">Active Ingredient 3</li>
-                        <li class="patient-drug-ingredient">Active Ingredient 4</li>
+                    <div class="short-border"></div>
+                    <p class="pdai-list">Active Ingredients for each drug in patient portfolio
+                        <div class="not-detected">Active Ingredient 1</div>
+                        <div class="detected">Active Ingredient 2</div>
+                        <div class="not-detected">Active Ingredient 3</div>
+                        <div class="not-detected">Active Ingredient 4</div>
                     </p>
                 </div>
 
                 <div class="patient-drug-data">
-                    <h3>Patient Drug Data</h3>
-                    <div class="drug-list"></div>
+                    <h3>Patient Drug Portflio</h3>
+                    <div class="short-border"></div>
+                    <div class="drug-list">
+                        <div class="detected">Drug 1</div>
+                        <div class="not-detected">Drug 2</div>
+                        <div class="not-detected">Drug 3</div>
+                        <div class="not-detected">Add Drug</div>
+                    </div>
                     <div class="patient-profile"></div>
                 </div>
                 
@@ -193,6 +199,34 @@
 
 
         </main>
+
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Dr. Blay</b></p>
+                        <small class="text-muted">Doctor of Medicine</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="images/patient-profile-1.png">
+                    </div>
+                </div>
+            </div>
+            <!-- end of nav -->
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="images/patient-profile-2.png">
+                    <h2>Emma</h2>
+                    <p>Patient 2</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- End of Right Section -->
 
     </div>
 

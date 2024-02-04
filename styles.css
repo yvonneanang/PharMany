@@ -2,9 +2,9 @@
 
 :root{
     --color-primary: #D138FF;
-    --color-primary-lighter: hsl(from var(--color-primary) h s calc(70%));
+    --color-primary-lighter: hsl(from var(--color-primary) h s calc(85%));
     --color-secondary: #FF389D;
-    --color-secondary-darker: hsl(from var(--color-primary) h s calc(30%));
+    --color-secondary-darker: hsl(from var(--color-primary) h s calc(10%));
     --color-section: #d3e5ee;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
@@ -96,6 +96,14 @@ p{
 
 b{
     color:var(--color-dark);
+}
+
+.short-border{
+    display: block;
+    width: 80px;
+    height: 0.2rem;
+    margin: 1rem auto;
+    background: var(--color-secondary);
 }
 
 .text-muted{
@@ -285,9 +293,9 @@ main .drug-query .drug-search{
     /*justify-content: space-around;*/
     flex-wrap: wrap;
     gap: 1.4rem;
-    transition: all 0.3s ease;
-    margin-right: -20rem;
+    margin-right: -25rem;
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
 }
 
 /* main .drug-query .drug-search i{
@@ -328,45 +336,65 @@ main .drug-report{
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
-    margin-right: -20rem;
+    margin-right: -25rem;
     box-shadow: var(--box-shadow);
     display: flex;
     /*justify-content: space-around;*/
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 1.4rem;
+    gap: 1rem;
     transition: all 0.3s ease;
     
 
-
 }
+
+main .drug-report .queried-drug-info .vertical-row{
+    content: "";
+    background-color: var(--color-dark);
+    /*position: relative;*/
+    float: left;
+    width: 5px;
+    height: 100px;
+    top: 10px;
+    left: 60%;
+    display: block;
+}
+
 
 main .drug-report .queried-drug-info .drug-name{
     /*background-color: var(--color-primary-lighter);*/
-    background-color: var(--color-section);
+    /*background-color: var(--color-section);*/
     color: var(--color-primary);
     border-radius: var(--border-radius-2);
-    padding: 1rem;
+    padding: 1rem;*/
     opacity: 70%;
-    width: 40h;
+    width: 35vh;
     text-align: center;
+    font-weight: 800;
+    font-size: medium;
     /*opacity: 60%;*/
     margin-bottom: 1rem;
     
-
+    
     /*background-color-opacity: 60%;*/
 }
 
+main .drug-report .queried-drug-info .mechanism-action h3{
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: medium;
+
+}
+
 main .drug-report .queried-drug-info .mechanism-action{
-    background-color: var(--color-section);
+    /*background-color: var(--color-section);*/
     color: var(--color-primary);
     border-radius: var(--border-radius-2);
     padding: 1rem;
     display: block;
-    width: 40vh;
+    width: 35vh;
     text-align:center;
     opacity:70%;
-    
     
 }
 
@@ -377,29 +405,130 @@ main .drug-report .queried-drug-info .mechanism-action .content{
 
 
 main .drug-report .queried-drug-active-ingredients{
-    background-color: var(--color-section);
+   /*background-color: var(--color-section);
     padding: 1rem;
-    border-radius: var(--border-radius-2);
+    border-radius: var(--border-radius-2); */
     display: block;
     opacity: 70%;
+    width: 40vh;
     
 }
 
 main .drug-report .queried-drug-active-ingredients h3{
     color: var(--color-primary);
     text-align: center;
+    font-weight: 800;
+    font-size: small;
 }
 
 
-main .drug-report .queried-drug-active-ingredients .q-drug-ingredient-list .qdi{
-    color: var(--color-dark-variant);
-    background-color: var(--color-primary);
-}
 
-main .drug-report .patient-drug-active-ingredients{
+main .drug-report .patient-drug-active-ingredients h3{
+    color: var(--color-primary);
+    text-align: center;
+    font-weight: 800;
+    font-size: small;
     
 }
 
-main .drug-report .patient-drug-data{
+main .drug-report .patient-drug-active-ingredients{
+    /*background-color: var(--color-section);
+    padding: 1rem;
+    border-radius: var(--border-radius-2);*/
+    
+    opacity: 70%; 
+    width: 40vh;
+}
 
+
+main .drug-report .patient-drug-data{
+   /*background-color: var(--color-section);
+    padding: 1rem;*/
+    border-radius: var(--border-radius-2);
+    opacity: 70%; 
+
+}
+
+main .drug-report .patient-drug-data h3{
+    color: var(--color-primary);
+    text-align: center;
+    font-weight: 800;
+    font-size: medium;
+}
+
+.not-detected{
+    background-color: var(--color-primary-lighter);
+    border-radius: var(--border-radius-2);
+    text-align: center;
+    color: var(--color-secondary-darker);
+    padding: 1rem;
+    margin-top: 1rem;
+    
+}
+
+.detected{
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-2);
+    text-align: center;
+    color: var(--color-secondary-darker);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.right-section{
+    margin-top: 1.4rem;
+}
+
+.right-section .nav{
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right-section .nav .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+.right-section .nav .profile .profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.right-section .user-profile{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: var(--color-white);
+    padding: var(--color-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.right-section .user-profile:hover{
+    box-shadow: none;
+}
+
+.right-section .user-profile img{
+    width: 11rem; 
+    height: 11rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 80%;
+
+}
+
+.right-section .user-profile h2{
+    margin-bottom: 0.2rem;
+}
+
+.right-section .user-profile p{
+    margin-bottom: 0.2rem;
 }
