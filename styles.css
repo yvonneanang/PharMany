@@ -2,7 +2,9 @@
 
 :root{
     --color-primary: #D138FF;
+    --color-primary-lighter: hsl(from var(--color-primary) h s calc(70%));
     --color-secondary: #FF389D;
+    --color-secondary-darker: hsl(from var(--color-primary) h s calc(30%));
     --color-success: #1B9C85;
     --color-warning: #F7D060;
     --color-white: #fff;
@@ -326,25 +328,53 @@ main .drug-report{
     display: flex;
     /*justify-content: space-around;*/
     flex-wrap: wrap;
+    justify-content: space-around;
     gap: 1.4rem;
     transition: all 0.3s ease;
+
+
    
 
 }
 
 main .drug-report .queried-drug-info .drug-name{
-    background-color: var(--color-primary);
-    filter: alpha(opacity=60);
+    background-color: var(--color-primary-lighter);
     color: var(--color-white);
     border-radius: var(--border-radius-2);
     padding: 1rem;
     opacity: 80%;
-    width: 25vh;
+    width: 45vh;
     text-align: center;
+    /*opacity: 60%;*/
+    margin-bottom: 1rem;
+    
 
     /*background-color-opacity: 60%;*/
 }
 
 main .drug-report .queried-drug-info .mechanism-action{
+    background-color: var(--color-primary-lighter);
+    color:var(--color-secondary-darker);
+    border-radius: var(--border-radius-2);
+    padding: 1rem;
+    display: block;
+    width: 45vh;
     
+    
+}
+
+main .drug-report .queried-drug-info .mechanism-action .content{
+    
+}
+
+main .drug-report .queried-drug-active-ingredients{
+    
+}
+
+main .drug-report .patient-drug-active-ingredients{
+    
+}
+
+main .drug-report .patient-drug-data{
+
 }
