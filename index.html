@@ -78,8 +78,10 @@
         <!-- Main Content -->
         <main>
             <!-- Dashboard -->
-            <h1>Dashboard</h1>
-            <div class="dashboard"></div>
+            
+            <div class="dashboard">
+                <h1>Dashboard</h1>
+            </div>
             
             <!-- Patients-->
             <div class="patients">
@@ -115,8 +117,9 @@
             <!-- Patients Ends here -->
 
             <!-- Patient Portfolio-->
-            <h2>Patient Portfolio</h2>
-            <div class="patient-porftolio">
+            
+            <div class="patient-portfolio">
+                <h2>Patient Portfolio</h2>
                 <div class="patient-personal-data">
 
                 </div>
@@ -125,8 +128,9 @@
 
             <!-- Drug Query -->
             <!--div class=earch, i bx bx-search and input type-->
-            <h2>Drug Query</h2>         
+                    
             <div class="drug-query">
+                <h2>Drug Query</h2>
                 <i class ='drug-search'>
                     <span class="material-icons-round">
                         search
@@ -140,7 +144,26 @@
 
             <!-- Drug Report -->
             <h2>Drug Report</h2>         
-            <div class="drug-report"></div>
+            <div class="drug-report">
+                <div class="queried-drug-info">
+                    <!--Parse from the Drug query section (js)-->
+                    <h3 class="drug-name">Drug Name</h3>
+                    <div class="mechanism-action">
+                        <h3>Mechanism of Action</h3>
+                        <!--Include output of mechanism of action fromfile-->
+                        <p></p>
+                    </div>
+                </div>
+                <div class="queried-drug-active-ingredients">
+                    
+                </div>
+                <div class="patient-drug-active-ingredients"></div>
+                <div class="patient-drug-data">
+                    <div class="drug-list"></div>
+                    <div class="patient-profile"></div>
+                </div>
+                
+            </div>
             <!-- Drug report ends here -->
 
 

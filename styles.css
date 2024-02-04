@@ -2,7 +2,7 @@
 
 :root{
     --color-primary: #D138FF;
-    --color-danger: #FF389D;
+    --color-secondary: #FF389D;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
     --color-white: #fff;
@@ -103,8 +103,8 @@ b{
     color:var(--color-primary);
 }
 
-.danger{
-    color: var(--color-danger);
+.secondary{
+    color: var(--color-secondary);
 }
 
 .success{
@@ -221,9 +221,13 @@ main{
     margin-top: 1.4rem;
 }
 
+main .dashboard{
+    color: var(--color-secondary);
+}
+
 main .patients{
     margin-top: 1.3rem;
-
+    color: var(--color-secondary);
 }
 
 main .patients .patient-list{
@@ -238,6 +242,7 @@ main .patients .patient-list{
     gap: 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 2rem;
 }
 
 main .patients .patient-list:hover{
@@ -249,6 +254,7 @@ main .patients .patient-list .patient{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--color-dark-variant);
 }
 
 main .patients .patient-list .patient img{
@@ -256,6 +262,10 @@ main .patients .patient-list .patient img{
     height: 5rem;
     margin-bottom: 0.4rem;
     border-radius: 50%;
+}
+
+main .patient-portfolio{
+    color: var(--color-secondary);
 }
 
 main .drug-query{
@@ -273,12 +283,18 @@ main .drug-query .drug-search{
     flex-wrap: wrap;
     gap: 1.4rem;
     transition: all 0.3s ease;
+    margin-right: -20rem;
+    margin-bottom: 2rem;
 }
 
 /* main .drug-query .drug-search i{
     font-size: 20px;
     color: var(--color-primary);
 } */
+
+main .drug-query{
+    color: var(--color-secondary); 
+}
 
 main .druq-query .drug-search span{
     font-size: 1.6rem;
@@ -298,4 +314,37 @@ main .drug-query .drug-search input{
 
 main .drug-query .drug-search input::placeholder{
     color: var(--color-info-dark);
+}
+
+main .drug-report{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    margin-right: -20rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    /*justify-content: space-around;*/
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    transition: all 0.3s ease;
+   
+
+}
+
+main .drug-report .queried-drug-info .drug-name{
+    background-color: var(--color-primary);
+    filter: alpha(opacity=60);
+    color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    padding: 1rem;
+    opacity: 80%;
+    width: 25vh;
+    text-align: center;
+
+    /*background-color-opacity: 60%;*/
+}
+
+main .drug-report .queried-drug-info .mechanism-action{
+    
 }
