@@ -112,6 +112,12 @@ def find_active_ings(newdruginfo):
         except:
             pass
     if not found:
+      try:
+          act_ings = newdrug_result['precautions'][0].lower().split('is the active ingredient of')[0].strip().split(' ')[-1]
+          found = True
+      except:
+        pass
+    if not found:
         act_ings = newdruginfo['Drug'].lower()
 
     # parse active ingredients into list
