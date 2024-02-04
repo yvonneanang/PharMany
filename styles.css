@@ -5,13 +5,14 @@
     --color-primary-lighter: hsl(from var(--color-primary) h s calc(70%));
     --color-secondary: #FF389D;
     --color-secondary-darker: hsl(from var(--color-primary) h s calc(30%));
+    --color-section: #d3e5ee;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
     --color-dark: #363949;
     --color-light: rgba(132, 139, 200, 0.18);
-    --color-dark-variant: #677483;
+    --color-dark-variant: #677483; 
     --color-background: #ECF8FF;
 
     --card-border-radius: 2rem;
@@ -318,6 +319,10 @@ main .drug-query .drug-search input::placeholder{
     color: var(--color-info-dark);
 }
 
+main h2{
+    color: var(--color-secondary);
+}
+
 main .drug-report{
     background-color: var(--color-white);
     padding: var(--card-padding);
@@ -331,19 +336,19 @@ main .drug-report{
     justify-content: space-around;
     gap: 1.4rem;
     transition: all 0.3s ease;
+    
 
-
-   
 
 }
 
 main .drug-report .queried-drug-info .drug-name{
-    background-color: var(--color-primary-lighter);
-    color: var(--color-white);
+    /*background-color: var(--color-primary-lighter);*/
+    background-color: var(--color-section);
+    color: var(--color-primary);
     border-radius: var(--border-radius-2);
     padding: 1rem;
-    opacity: 80%;
-    width: 45vh;
+    opacity: 70%;
+    width: 40h;
     text-align: center;
     /*opacity: 60%;*/
     margin-bottom: 1rem;
@@ -353,22 +358,42 @@ main .drug-report .queried-drug-info .drug-name{
 }
 
 main .drug-report .queried-drug-info .mechanism-action{
-    background-color: var(--color-primary-lighter);
-    color:var(--color-secondary-darker);
+    background-color: var(--color-section);
+    color: var(--color-primary);
     border-radius: var(--border-radius-2);
     padding: 1rem;
     display: block;
-    width: 45vh;
+    width: 40vh;
+    text-align:center;
+    opacity:70%;
     
     
 }
 
 main .drug-report .queried-drug-info .mechanism-action .content{
+    text-align: left;
+    padding: 0.5rem;
+}
+
+
+main .drug-report .queried-drug-active-ingredients{
+    background-color: var(--color-section);
+    padding: 1rem;
+    border-radius: var(--border-radius-2);
+    display: block;
+    opacity: 70%;
     
 }
 
-main .drug-report .queried-drug-active-ingredients{
-    
+main .drug-report .queried-drug-active-ingredients h3{
+    color: var(--color-primary);
+    text-align: center;
+}
+
+
+main .drug-report .queried-drug-active-ingredients .q-drug-ingredient-list .qdi{
+    color: var(--color-dark-variant);
+    background-color: var(--color-primary);
 }
 
 main .drug-report .patient-drug-active-ingredients{
